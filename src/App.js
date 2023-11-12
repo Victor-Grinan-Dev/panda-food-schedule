@@ -1,4 +1,7 @@
+import { getData } from "./service/firebaseService";
+
 function App() {
+  getData();
   return (
     <div className="App">
       <header className="App-header">
