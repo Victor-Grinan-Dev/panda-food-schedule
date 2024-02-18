@@ -1,41 +1,41 @@
-import { db } from "../firebase";
+// import { app } from "../firebaseconfig";
 
-import {
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  doc,
-  // deleteDoc,
-  serverTimestamp,
-} from "firebase/firestore";
+// import {
+//   collection,
+//   getDocs,
+//   addDoc,
+//   updateDoc,
+//   doc,
+//   deleteDoc,
+//   serverTimestamp,
+// } from "firebase/firestore";
 
-const mealsCollection = collection(db, "meals");
-// const tagCollectionRef = collection(db, "tags");
-// // const deletedCollectionRef = collection(db, "deleted");
+// const mealsCollection = collection(app, "meals");
+// // const tagCollectionRef = collection(app, "tags");
+// // // const deletedCollectionRef = collection(app, "deleted");
 
-export const createMeal = async (meals) => {
-  try {
-    await addDoc(mealsCollection, { ...meals, date: serverTimestamp() });
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const createMeal = async (meals) => {
+//   try {
+//     await addDoc(mealsCollection, { ...meals, date: serverTimestamp() });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
-export const getAllMeals = async () => {
-  const data = await getDocs(mealsCollection);
-  return data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-};
+// export const getAllMeals = async () => {
+//   const data = await getDocs(mealsCollection);
+//   return data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+// };
 
-export const updateMeal = async (id, meals) => {
-  const mealsDoc = doc(db, "meals", id);
-  await updateDoc(mealsDoc, meals);
-};
+// export const updateMeal = async (id, meals) => {
+//   const mealsDoc = doc(app, "meals", id);
+//   await updateDoc(mealsDoc, meals);
+// };
 
-export const deleteMeal = async (id) => {
-  const mealsDoc = doc(db, "meals", id);
-  await deleteDoc(mealsDoc);
-};
+// export const deleteMeal = async (id) => {
+//   const mealsDoc = doc(app, "meals", id);
+//   await deleteDoc(mealsDoc);
+// };
 
 /////////////////// TAG ////////////////
 // export const addTag = async (tag) => {
@@ -53,12 +53,12 @@ export const deleteMeal = async (id) => {
 // };
 
 // export const updateTag = async (id, tag) => {
-//   // const tagDoc = doc(db, "tags", id);
+//   // const tagDoc = doc(app, "tags", id);
 //   await updateDoc(tagDoc, tag);
 // };
 
 // export const deleteTag = async (id) => {
-// const tagDoc = doc(db, "tags", id);
+// const tagDoc = doc(app, "tags", id);
 // await deleteDoc(tagDoc);
 // };
 
@@ -73,13 +73,12 @@ export const deleteMeal = async (id) => {
 
 // export const createDeleted = (/** meals */) => {
 // get the meals wanted to be deleted
-// save it in the deleted db
-//delete the meals from meals db
+// save it in the deleted app
+//delete the meals from meals app
 // };
 
-export const postData = (data) => {};
-export const getData = () => {
-  fetch(process.env.REACT_APP_FIREBASE_SERVICE).then((data) => {
-    console.log(data);
-  });
-};
+// export const getData = () => {
+//   fetch(process.env.REACT_APP_FIREBASE_SERVICE).then((data) => {
+//     console.log(data);
+//   });
+// };
