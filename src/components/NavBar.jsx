@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
 import pandaImg from "../assets/panda.png";
+import { translate } from "../translation/translation";
 
 function BasicExample() {
   return (
@@ -22,8 +23,12 @@ function BasicExample() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+
+            <Nav.Link href="#home">translate('Add meal', 'es')</Nav.Link>
             <Nav.Link href="#home">Home</Nav.Link>
-            {/* <Nav.Link href="#link">Link</Nav.Link> */}
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#home">login</Nav.Link>
+
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
