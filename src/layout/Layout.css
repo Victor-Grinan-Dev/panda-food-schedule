@@ -3,6 +3,14 @@
     min-height: 100svh;
 }
 
+.navtabs{
+    display: flex;
+    flex-direction: row;
+    width: 55vw;
+
+    gap: 10px;
+    justify-content: flex-end;
+}
 .main{
     position: relative;
     top: 50px;

@@ -5,6 +5,8 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
 import pandaImg from "../assets/panda.png";
 import { translate } from "../translation/translation";
+import { Button } from "react-bootstrap";
+const isAuth = true
 
 function BasicExample() {
   return (
@@ -20,19 +22,16 @@ function BasicExample() {
           />
           Pandish
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+        {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
+{   isAuth &&     
+          <Nav className="me-auto navtabs">
+            <Nav.Link href="#home">{translate("Dashboard", "es")}</Nav.Link>
 
-            <Nav.Link href="#home">translate('Add meal', 'es')</Nav.Link>
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#home">login</Nav.Link>
-
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+            <NavDropdown title={translate("Menu")} id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">{translate("Add meal", "es")}</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1">{translate("Settings", "es")}</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                Another action
+              {translate("logout", "es")}
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />
@@ -40,8 +39,10 @@ function BasicExample() {
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
+          </Nav>}
+        {
+            !isAuth && <Button>Login</Button>
+        }
       </Container>
     </Navbar>
   );
