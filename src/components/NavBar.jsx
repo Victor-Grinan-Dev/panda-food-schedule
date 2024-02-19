@@ -7,7 +7,7 @@ import pandaImg from "../assets/panda.png";
 
 function BasicExample() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary" fixed="top">
+    <Navbar expand="lg" className="bg-body-tertiary custom-navBar" fixed="top">
       <Container>
         <Navbar.Brand href="#home">
           <img
